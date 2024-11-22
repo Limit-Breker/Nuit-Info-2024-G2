@@ -1,0 +1,11 @@
+FROM nginx:1.26.2
+
+WORKDIR /etc/ssl
+
+RUN apt-get update && apt-get install -y netcat-traditional python3 python3-openssl
+
+COPY generate_certificate.py generate_certificate.py
+
+RUN sed -i 's/\r$//g' generate_certificate.py && chmod +x generate_certificate.py && mkdir -p /etc/ssl/private /etc/ssl/certs
+
+CMD ["sh", "-c", "python3 generate_certificate.py && nginx -g 'daemon off;'"]
