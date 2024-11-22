@@ -1,5 +1,6 @@
 #!../.venv/bin/python3
 from OpenSSL import crypto
+import os
 
 
 def cert_gen():
@@ -13,8 +14,8 @@ def cert_gen():
     serial_number = 0
     validity_start = 0
     validity_end = 10 * 365 * 24 * 60 * 60
-    KEY_FILE = "./ssl/private/self_ssl_certs.key"
-    CERT_FILE = "./ssl/certs/self_ssl_certs.pem"
+    KEY_FILE = "./private/self_ssl_certs.key"
+    CERT_FILE = "./certs/self_ssl_certs.pem"
 
     # Generate the private key
     k = crypto.PKey()
