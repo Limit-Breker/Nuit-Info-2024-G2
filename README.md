@@ -2,6 +2,11 @@
 
 ## Préréquis
 
+Créer un fichier `.env` à la racine du projet avec les variables suivantes :
+```sh
+cp template.env .env
+```
+
 [Voir wiki](https://github.com/Limit-Breker/Nuit-Info-2024-G2/wiki)
 
 ## Lancement local
