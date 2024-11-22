@@ -1,0 +1,59 @@
+{% load fontawesome_5 %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>
+            {% block title %}
+                Accueil
+            {% endblock title %}
+            - Limit Braker</title>
+        <link rel="icon"
+              {% block favicon %}
+              href="{% static 'images/logo.png' %}?{% now "u" %}"
+              {% endblock favicon %}>
+        <meta name="description" content="NuitInfo">
+        <meta name="keywords" content="Nuit Info, IUT">
+
+        {% block metacord %}
+            <meta content="Limit Braker - Nuit INfo 2024" property="og:title" />
+            <meta content="Edition 2024 de le nuit de l'info"
+                  property="og:description" />
+            <meta content="https://nuitinfo.fruitpassion.fr" property="og:url" />
+            <meta content="{% static 'images/logo.png' %}?{% now "u" %}" property="og:image" />
+        {% endblock metacord %}
+    
+        <meta content="#03b1fc" data-react-helmet="true" name="theme-color" />
+        {% fontawesome_5_static %} 
+        <link rel="stylesheet" href="{% static 'css/common/base.css' %}?{% now "u" %}">
+    
+        {% block stylesheets %}
+        {% endblock stylesheets %}
+    
+        <script src="{% static 'js/common/base.js' %}?{% now "u" %}" defer></script>
+    
+        {% block javascripts %}
+        {% endblock javascripts %}
+    
+        {% block header %}
+        {% endblock header %}
+    </head>
+    <body>
+        {% include "partials/message.html" %}
+        {% block formerrors %}
+        {% endblock formerrors %}
+
+        {% include "partials/header.html" %}   
+
+        <div id="background">
+            {% block body %}
+            {% endblock body %}
+        </div>
+
+        {% include "partials/footer.html" %}
+    </body>
+
+    {% block javascripts2 %}
+    {% endblock javascripts2 %}
+</html>

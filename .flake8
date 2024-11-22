@@ -1,0 +1,7 @@
+[flake8]
+max-line-length = 200
+exclude =
+    app/nuitinfo/settings/*
+    app/nuitinfo/apps.py
+    app/staticfiles/*
+ignore = F401

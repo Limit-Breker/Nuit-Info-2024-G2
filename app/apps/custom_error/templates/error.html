@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}
+    Erreur {{ status }}
+{% endblock title %}
+{% block body %}
+    {% load static %}
+    <div class="rounded-box">
+        <div class="rounded-box-inner-block text-center">
+            <h1>Erreur {{ status }}</h1>
+            <p>{{ message }}</p>
+            <div class="d-flex justify-content-center">
+                <img src="{% static image %}?{% now "u" %}"
+                     alt="Erreur {{ status }}"
+                     class="error-gif"
+                     height="100"
+                     width="100">
+            </div>
+            <div class="d-flex justify-content-center item mt-5 mb-5">
+                <a href="/">
+                    <button class="big-button draw-border">Retour à l'accueil</button>
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock body %}
