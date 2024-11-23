@@ -6,8 +6,6 @@ services:
     container_name: nuitinfo24-web-dev
     volumes:
       - ./app:/usr/src/app
-      - static_volume:/usr/src/app/static
-      - media_volume:/usr/src/app/media
     expose:
       - 8000
     env_file:
@@ -28,8 +26,8 @@ services:
     image: nginx:1.26.2
     container_name: nuitinfo24-nginx-dev
     volumes:
-      - static_volume:/usr/src/app/static
-      - media_volume:/usr/src/app/media
+      - ./app/static:/usr/src/app/static
+      - ./app/media:/usr/src/app/media
       - ./nginx/nginx.dev.conf:/etc/nginx/conf.d/default.conf
     ports:
       - 443:443
@@ -38,6 +36,5 @@ services:
       - db
 
 volumes:
-  static_volume:
   media_volume:
   postgres_data:
