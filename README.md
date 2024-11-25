@@ -27,7 +27,7 @@ docker-compose -f docker-compose.dev.yml exec web python manage.py migrate
 L'adresse de test est https://localhost.
 
 
-### Via manage.py
+### ~~Via manage.py~~ (Déprécié)
 
 L'application peut être testé en local via la commande :
 ```sh
@@ -35,3 +35,18 @@ L'application peut être testé en local via la commande :
 ```
 
 L'adresse de test est https://localhost:8000.
+
+
+## Documentation
+
+### Tailwind CSS
+
+[Documentation complete](https://tailwindcss.com/docs)
+
+### Django
+
+[Documentation complete](https://docs.djangoproject.com/fr/5.1/)
+
+### Django Rest Framework
+
+[Documentation complete](https://www.django-rest-framework.org/)
