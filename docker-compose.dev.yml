@@ -27,6 +27,7 @@ services:
     container_name: nuitinfo24-nginx-dev
     volumes:
       - ./app/static:/usr/src/app/static
+      - ./app/staticfiles:/usr/src/app/staticfiles
       - ./app/media:/usr/src/app/media
       - ./nginx/nginx.dev.conf:/etc/nginx/conf.d/default.conf
     ports:
@@ -36,5 +37,4 @@ services:
       - db
 
 volumes:
-  media_volume:
   postgres_data:
