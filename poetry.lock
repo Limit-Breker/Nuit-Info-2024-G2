@@ -538,18 +538,18 @@ files = [
 Django = ">=3.2"
 
 [[package]]
-name = "django-fontawesome-5"
-version = "1.0.18"
-description = "A utility for using icons in models, forms, and templates."
+name = "django-fontawesome-5-renewed"
+version = "1.0.19"
+description = "A fork of a utility for using icons in models, forms, and templates."
 optional = false
 python-versions = "*"
 files = [
-    {file = "django-fontawesome-5-1.0.18.tar.gz", hash = "sha256:4fc4a7f5d0fe6e10d542ac9f1c143ad5e92aa61c6f310ea297c3c26bfc6001dd"},
-    {file = "django_fontawesome_5-1.0.18-py3-none-any.whl", hash = "sha256:1be340e795a6a68ebd9ba5d75e26bd72a839515c351786ff45e16b90bf50c3a0"},
+    {file = "django-fontawesome-5-renewed-1.0.19.tar.gz", hash = "sha256:438555175146dd64e9e2b01cfdd165a2bfddb6ae9eb3ec4bdda8f2999f50982d"},
+    {file = "django_fontawesome_5_renewed-1.0.19-py3-none-any.whl", hash = "sha256:c481aa546be6b5a8fee1d81e3851418bbb601fe110a88125c6527f718b4b91a2"},
 ]
 
 [package.dependencies]
-Django = ">=2.1"
+Django = ">=4"
 
 [[package]]
 name = "django-redis"
@@ -1767,4 +1767,4 @@ type = ["pytest-mypy"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "dce51141751d6ba55bba3294b3b1527346468323b9610752e0139f6d81c4039c"
+content-hash = "d649b12b81ea1cadbbebe5cc393532e533f012764235ff0b27958eb4bb15dc6c"
