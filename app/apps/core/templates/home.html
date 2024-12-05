@@ -1,5 +1,88 @@
 {% include "base.html" %}
 
+{% block stylesheets %}
+<style>
+#coeur {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 200px;
+    left: 225px;
+}
+#poumon {
+    width: 100px;
+    height: 50px;
+    position: absolute;
+    top: 250px;
+    left: 200px;
+}
+#reins {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 300px;
+    left: 250px;
+}
+#foie {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 300px;
+    left: 200px;
+}
+</style>
+{% endblock stylesheets %}
+
+{% block javascript %}
+<script>
+    function charge_coeur()
+    {
+        var info = document.getElementById("info");
+        info.innerHTML = `
+            <h1>Coeur</h1>
+            <p>en vrai le coeur c'est trop le poulet du corp</p>
+            <button onclick="document.location='coeur'">Jouer</button>
+        `;
+    }
+    function charge_poumon()
+    {
+        var info = document.getElementById("info");
+        info.innerHTML = `
+            <h1 style="color: red">Poumon</h1>
+            <p>le poumon quelle masterclass qu'en meme</p>
+            <button onclick="document.location='poumon'">Jouer</button>
+        `;
+    }
+    function charge_foie()
+    {
+        var info = document.getElementById("info");
+        info.innerHTML = `
+            <h1 style="color: red">Foie</h1>
+            <p>surcoté le foie</p>
+            <button onclick="document.location='foie'">Jouer</button>
+        `;
+    }
+    function charge_reins()
+    {
+        var info = document.getElementById("info");
+        info.innerHTML = `
+            <h1 style="color: red">Reins</h1>
+            <p>reins ou seins ?</p>
+            <button onclick="document.location='reins'">Jouer</button>
+        `;
+    }
+</script>
+{% endblock javascript %}
+
 {% block body %}
-    Bonjour
+<div id="humain">
+    <img src="/static/images/humain-temp.jpeg" alt="humain"></img>
+    <img src="/static/images/poumon-temp.jpg" onclick="charge_poumon()" alt="poumon" id="poumon"></img>
+    <img src="/static/images/coeur-temp.jpg" onclick="charge_coeur()" alt="coeur" id="coeur"></img>
+    <img src="/static/images/foie-temp.jpg" onclick="charge_foie()" alt="foie" id="foie"></img>
+    <img src="/static/images/reins-temp.jpg" onclick="charge_reins()" alt="reins" id="reins"></img>
+</div>
+<div id="info">
+    <h1>Cliquer sur les organes de l'humain pour en apprendre plus</h1>
+</div>
 {% endblock body %}
