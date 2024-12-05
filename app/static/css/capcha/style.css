@@ -1,0 +1,15 @@
+#capcha {
+    border: solid 1px black;
+}
+#puzzle {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    width: 500px;
+    height: 500px;
+}
+#puzzle > * {
+    display: flex;
+    padding: 1rem;
+    justify-content: center;
+    align-items: center;
+}
