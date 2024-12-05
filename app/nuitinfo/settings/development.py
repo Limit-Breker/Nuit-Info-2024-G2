@@ -2,7 +2,7 @@ from dotenv import load_dotenv
 
 from .base import *
 
-DEBUG = True
+DEBUG = False
 
 INSTALLED_APPS += [
     "django.contrib.admindocs",
