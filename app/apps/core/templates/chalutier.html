@@ -1,6 +1,11 @@
 {% include "base.html" %}
 {% load static %}
 
+{% block javascript %}
+ <script src="{% static "js/core/chalutier/chalutier.js" %}?{% now "u" %}" defer></script>
+{% endblock javascript %}
 {% block body %}
-    Chalutier
+    <div id="jeu" class="w-full">Chalutier</div>
 {% endblock body %}
+
+
