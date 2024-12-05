@@ -28,4 +28,5 @@ handler500 = "custom_error.views.ui_handler500"
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("admin/doc/", include("django.contrib.admindocs.urls")),
+    path("", include("core.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

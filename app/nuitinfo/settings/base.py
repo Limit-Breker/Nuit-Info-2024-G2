@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     "corsheaders",
     "rest_framework",
     "custom_error.apps.CustomErrorConfig",
+    "core.apps.CoreConfig",
     'django_extensions',
     'fontawesome_5',
 ]
@@ -76,7 +77,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = "nuitinfo.wsgi.application"
-
 
 LANGUAGE_CODE = "fr-FR"
 
