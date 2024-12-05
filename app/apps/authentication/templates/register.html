@@ -2,11 +2,11 @@
 {% load static %}
 
 {% block stylesheets %}
-    <!-- <link rel="stylesheet" href="{% static "css/auth/blabla.css" %}?{% now "u" %}">-->
+<link rel="stylesheet" href="{% static "css/capcha/style.css" %}?{% now "u" %}">
 {% endblock stylesheets %}
 
 {% block javascripts %}
-<!-- <script src="{% static "js/auth/blabla.js" %}?{% now "u" %}" defer></script> -->
+<script src="{% static "js/capcha/script.js" %}?{% now "u" %}" defer></script>
 {% endblock javascripts %}
 
 
@@ -18,4 +18,5 @@
         <div class="border-2">{{ form.password }}</div>
         <button type="submit">S'inscrire</button>
     </form>
+    {% include 'capcha.html' %}
 {% endblock body %}
