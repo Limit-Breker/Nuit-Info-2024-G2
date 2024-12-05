@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "custom_error.apps.CustomErrorConfig",
     "core.apps.CoreConfig",
+    "authentication.apps.AuthenticationConfig",
     'django_extensions',
     'fontawesome_5',
 ]
