@@ -1,0 +1,21 @@
+{% include "base.html" %}
+{% load static %}
+
+{% block stylesheets %}
+    <!-- <link rel="stylesheet" href="{% static "css/auth/blabla.css" %}?{% now "u" %}">-->
+{% endblock stylesheets %}
+
+{% block javascript %}
+<!-- <script src="{% static "js/auth/blabla.js" %}?{% now "u" %}" defer></script> -->
+{% endblock javascript %}
+
+
+{% block body %}
+    <p>Inscription</p>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="border-2">{{ form.username }}</div>
+        <div class="border-2">{{ form.password }}</div>
+        <button type="submit">S'inscrire</button>
+    </form>
+{% endblock body %}
