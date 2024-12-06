@@ -1,16 +1,14 @@
 export default class GameEngine {
 
-    canvas;
-    canvasDimensions;
+    canvasDimensions
 
-    constructor(canvas, canvasDimensions) {
+    constructor(canvas, width, height) {
 
-        this.height = height
-        this.width = width
+        this.canvasDimensions = {x:height,y:width}
         
         this.canvas = canvas;
-        this.canvas.width = canvasDimensions.x;
-        this.canvas.height = canvasDimensions.y;
+        this.canvas.width = width;
+        this.canvas.height = height;
         this.context = this.canvas.getContext('2d');
         
         // État du jeu

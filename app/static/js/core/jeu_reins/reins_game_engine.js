@@ -3,6 +3,8 @@ import FallingItem from './falling_item.js';
 
 export default class ReinsGameEngine extends GameEngine {
 
+    
+
     update(deltaTime) {
         
         this.staticGameObjects.forEach(
@@ -37,10 +39,16 @@ export default class ReinsGameEngine extends GameEngine {
 
         this.update(deltaTime);
         this.render();
+        console.log("ta soeur")
+
+        if(this.dynamicGameObjects.length==0) {
+            console.log("genere object")
+            this.genererObjet()
+        }
 
         requestAnimationFrame(() => this.loop());
 
-        if(this.dynamicGameObjects.length==0) this.genererObjet()
+        
     }
 
     handleBadChoice() {
@@ -48,7 +56,8 @@ export default class ReinsGameEngine extends GameEngine {
     }
 
     genererObjet() {
-        let o = new FallingItem({x:(canvasDimensions.x - 50) /2,y:0},{x:0,y:100},{x:50,y:50})
+        console.log("coucou")
+        let o = new FallingItem({x:(this.canvasDimensions.x - 50) /2,y:0},{x:0,y:100},{x:50,y:50})
         o.canStrafe = true
         this.addDynamicObject(o)
     }
