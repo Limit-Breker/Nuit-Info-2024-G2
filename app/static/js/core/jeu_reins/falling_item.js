@@ -14,7 +14,7 @@ export default class FallingItem extends GameEntity {
     }
 
     update(deltaTime) {
-        console.log('Delta',this.delta)
+        
     
         this.speed.y+=2+(this.delta<30?this.delta:30);
 

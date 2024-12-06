@@ -2,6 +2,15 @@ import GameEntity from '../common_jeu/game_entity.js';
 
 export default class StaticItem extends GameEntity {
 
+    objectif;
+
+    constructor(position, speed, dimensions, sprite = null,objectif) {
+
+        super(position, speed, dimensions,sprite)
+        this.objectif = objectif
+
+    }
+
     collideWithADynamicItem(object) {
         let sortie = (
             object.position.x < this.position.x + this.dimensions.x &&

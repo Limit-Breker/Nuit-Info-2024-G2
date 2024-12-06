@@ -28,7 +28,14 @@ export default class ReinsGameEngine extends GameEngine {
                 this.dynamicGameObjects.forEach(
                     objDynamic => {
                         if(obj.collideWithADynamicItem(objDynamic)) {
-                            console.log('CA COLLIDE TA MERE')
+                            /*
+                            if(obj.objectif!=objDynamic.objectif) {
+                                const audio = new Audio('/static/images/jeu_reins/wrong.wav')
+                                console.log(audio)
+                                audio.currentTime = 0;
+                                audio.play()
+                            }
+                            */   
                             this.removeDynamicObject(objDynamic)
                         }
                     }
@@ -56,16 +63,12 @@ export default class ReinsGameEngine extends GameEngine {
 
         if(this.dynamicGameObjects.length==0) {
             this.genererObjet()
-            this.delta+=1
+            this.delta+=0.2
         }
 
-            this.update(deltaTime);
-            this.render();
-            console.log("ta soeur")
-
-            
-
-            requestAnimationFrame(() => this.loop());
+        this.update(deltaTime);
+        this.render();
+        requestAnimationFrame(() => this.loop());
 
     }
 
