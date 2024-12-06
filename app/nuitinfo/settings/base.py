@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "custom_error.apps.CustomErrorConfig",
     "core.apps.CoreConfig",
+    "core_api.apps.CoreApiConfig",
     "authentication.apps.AuthenticationConfig",
     'django_extensions',
     'fontawesome_5',
@@ -139,4 +140,11 @@ DATABASES = {
         "HOST": "db",
         "PORT": os.getenv("DB_PORT"),
     }
+}
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ]
 }
