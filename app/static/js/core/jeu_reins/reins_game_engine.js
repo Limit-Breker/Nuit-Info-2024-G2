@@ -1,6 +1,15 @@
 import GameEngine from '../common_jeu/game_engine.js';
 import FallingItem from './falling_item.js';
 
+let sprites = [
+  new Image(),
+  new Image(),
+  new Image()
+]
+sprites[0].src = "/static/images/jeu_reins/reins-poison.svg"
+sprites[1].src = "/static/images/jeu_reins/tortue.svg"
+sprites[2].src = "/static/images/jeu_reins/reins-bouteille.svg"
+
 export default class ReinsGameEngine extends GameEngine {
 
     delta;
@@ -8,7 +17,8 @@ export default class ReinsGameEngine extends GameEngine {
 
         super(canvas, width, height)
         this.delta = 0.1
-
+        this.background = new Image()
+        this.background.src = "/static/images/jeu_reins/game-reins.png"
     }
 
     update(deltaTime) {
@@ -63,10 +73,15 @@ export default class ReinsGameEngine extends GameEngine {
     
 
     genererObjet() {
-        console.log("bite",this.delta)
         let destinations = [-1,0,1]
-        let o = new FallingItem({x:(this.canvasDimensions.x - 50) /2,y:0},{x:0,y:100},{x:50,y:50},destinations[Math.floor(Math.random() * destinations.length)],this.delta)
+        let i = Math.floor(Math.random() * destinations.length)
+        let o = new FallingItem({x:(this.canvasDimensions.x - 150) /2,y:250},{x:0,y:100},{x:150, y: 150},destinations[i],this.delta)
+        o.sprite = sprites[i]
         o.canStrafe = true
         this.addDynamicObject(o)
+    }
+
+    renderBackground() {
+        this.context.drawImage(this.background, 0, 0, this.canvas.width, this.canvas.height)
     }
 }

@@ -19,16 +19,18 @@ if (!canvas) {
 let canvasLeft = canvas.offsetLeft + canvas.clientLeft;
 let canvasTop = canvas.offsetTop + canvas.clientTop;
 
+let rein = new Image()
+rein.src = "/static/images/jeu_reins/reins-rein.svg"
 
 poubelleGauche.render = function(context) {
-    context.fillStyle = 'grey';
-    context.fillRect(this.position.x, this.position.y, this.dimensions.x, this.dimensions.y);
+  context.drawImage(rein, this.position.x, this.position.y, this.dimensions.x, this.dimensions.y)
 }
 
+let mangrove = new Image()
+mangrove.src = "/static/images/jeu_reins/reins-mangrove.svg"
 
 poubelleDroite.render = function(context) {
-    context.fillStyle = 'grey';
-    context.fillRect(this.position.x, this.position.y, this.dimensions.x, this.dimensions.y);
+  context.drawImage(mangrove, this.position.x, this.position.y, this.dimensions.x, this.dimensions.y)
 }
 
 
