@@ -1,10 +1,11 @@
 export default class GameEngine {
 
     canvasDimensions
+    running
 
     constructor(canvas, width, height) {
 
-        this.canvasDimensions = {x:height,y:width}
+        this.canvasDimensions = {x:width,y:height}
         
         this.canvas = canvas;
         this.canvas.width = width;
