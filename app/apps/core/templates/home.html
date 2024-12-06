@@ -6,8 +6,9 @@
 {% endblock stylesheets %}
 
 {% block body %}
+    <img src="{% static "images/qr-kyogre.png" %}" class="absolute bottom-0 w-1/4">
     <div id="titre-page"><h1 class="dark:text-white mt-10 text-7xl text-center backdrop-blur-3xl">Le corps de la mer</h1></div>
-    <div  class="flex justify-center">
+    <div  class="flex justify-center ">
         <div class="relative mt-40" id="human-box">
             <img  src="{% static "images/body.svg" %}" id="humain" alt="humain"></img>
             <img data-modal-toggle="poumon-modal" data-modal-target="poumon-modal"  src="{% static "images/poumon-rouge.svg" %}" class="organes" alt="poumon" id="poumon"></img>
@@ -36,7 +37,9 @@
                     </div>
                     <!-- Modal footer -->
                     <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600 text-4xl">
-                        <button data-modal-hide="{{ info.organe|lower }}-modal" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg px-5 py-2.5 ms-3  text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Jouer</button>
+                        {% if info.organe|lower != "poumon" %}
+                            <a href="{% url info.organe|lower %}" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg px-5 py-2.5 ms-3  text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Jouer</a>
+                        {% endif %}
                         <a href="{% url "info_specifique" info.organe|lower %}" type="button" class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg px-5 py-2.5 ms-3  text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">En apprendre plus</a>
                         <button data-modal-hide="{{ info.organe|lower }}-modal" type="button" class="py-2.5 px-5 ms-3 font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Fermer</button>
                     </div>
