@@ -15,7 +15,7 @@ export default class GameEntity {
 
     render(context) {
         if (this.sprite != null) {
-
+          context.drawImage(this.sprite, this.position.x, this.position.y, this.dimensions.x, this.dimensions.y)
         } else {
             context.fillStyle = 'red';
             context.fillRect(this.position.x, this.position.y, this.dimensions.x, this.dimensions.y);
