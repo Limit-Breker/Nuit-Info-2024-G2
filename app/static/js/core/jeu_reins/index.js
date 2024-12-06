@@ -8,6 +8,7 @@ let canvasId = 'gameCanvas';
 let canvas = document.getElementById(canvasId);
 let game = new ReinsGameEngine(canvas, canvasDimensions.x, canvasDimensions.y);
 let poubelleGauche = new StaticItem({x:0,y:canvasDimensions.y - 200},{x:0,y:0},{x:200,y:200})
+let center = new StaticItem({x:200,y:canvasDimensions.y - 1},{x:0,y:0},{x:300,y:1})
 let poubelleDroite = new StaticItem({x:canvasDimensions.x - 200, y:canvasDimensions.y - 200},{x:0,y:0},{x:200,y:200})
 
 
@@ -33,6 +34,7 @@ poubelleDroite.render = function(context) {
 
 game.addStaticObject(poubelleGauche)
 game.addStaticObject(poubelleDroite)
+game.addStaticObject(center)
 game.start();
 
 game.canvas.addEventListener('click', function(event) { 
