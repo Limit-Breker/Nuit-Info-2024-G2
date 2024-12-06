@@ -47,7 +47,7 @@ export default class ReinsGameEngine extends GameEngine {
                             }
                             else {
                               this.score += 1
-                              if (this.score > 1) {
+                              if (this.score == 30) {
                                 console.log("WIN")
                                   const response = fetch('/api/profile/organs/', {
                                     method: 'PATCH',
