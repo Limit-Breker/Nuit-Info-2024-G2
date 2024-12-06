@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block javascripts %}
+    <script type="module" src="{% static "js/core/coeur/index.js" %}?{% now "u" %}" defer></script>
+{% endblock javascripts %}
+
+{% block body %}
+<canvas id="gameCanvas" class="mx-auto border border-black border-2">
+    Your browser does not support the HTML5 canvas tag.
+</canvas>
+{% endblock body %}
