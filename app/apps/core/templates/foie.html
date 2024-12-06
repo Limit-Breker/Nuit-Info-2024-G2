@@ -4,17 +4,24 @@
     <link rel="stylesheet" href="/static/css/foie/style.css">
 {% endblock stylesheets %}
 
+{% block javascripts %}
+{% csrf_token %}
+<script>
+const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+</script>
+{% endblock javascripts %}
+
 {% block javascripts2 %}
 <script src="/static/js/foie/script.js" defer></script>
 {% endblock javascripts2 %}
 
 {% block body %}
-        <img onclick="this.hidden=true" src="/static/images/rhum.svg" class="cache" id="rhum-1"></img>
-        <img onclick="this.hidden=true" src="/static/images/rhum.svg" class="cache" id="rhum-2"></img>
-        <img onclick="this.hidden=true" src="/static/images/rhum.svg" class="cache" id="rhum-3"></img>
-        <img onclick="this.hidden=true" src="/static/images/baril.svg" class="cache" id="baril-1"></img>
-        <img onclick="this.hidden=true" src="/static/images/baril.svg" class="cache" id="baril-2"></img>
-        <img onclick="this.hidden=true" src="/static/images/baril.svg" class="cache" id="baril-3"></img>
+        <img onclick="click_cache(this)" src="/static/images/rhum.svg" class="cache" id="rhum-1"></img>
+        <img onclick="click_cache(this)" src="/static/images/rhum.svg" class="cache" id="rhum-2"></img>
+        <img onclick="click_cache(this)" src="/static/images/rhum.svg" class="cache" id="rhum-3"></img>
+        <img onclick="click_cache(this)" src="/static/images/baril.svg" class="cache" id="baril-1"></img>
+        <img onclick="click_cache(this)" src="/static/images/baril.svg" class="cache" id="baril-2"></img>
+        <img onclick="click_cache(this)" src="/static/images/baril.svg" class="cache" id="baril-3"></img>
     <h1>BAD UI</h1>
     <p>Des dechets sont caché dans cet page, trouver les pour nettoyer l'ocean</p>
     <form>
@@ -33,10 +40,10 @@
             </div>
             <input id="submit" type="submit" value="Submit">
         </form>
-        <button style="left: 000px; top: 500px;" class="butt-innac">Click Me</button>
-        <button style="left: 100px; top: 500px;" class="butt-innac">Click Me</button>
-        <button style="left: 200px; top: 500px;" class="butt-innac">Click Me</button>
-        <button style="left: 300px; top: 500px;" class="butt-innac">Click Me</button>
-        <button style="left: 400px; top: 500px;" class="butt-innac">Click Me</button>
-        <button style="left: 500px; top: 500px;" class="butt-innac">Click Me</button>
+        <button style="left: 000px; top: 500px; background-color: red;" class="butt-innac">Click Me</button>
+        <button style="left: 130px; top: 200px; background-color: blue;" class="butt-innac">Click Me</button>
+        <button style="left: 150px; top: 750px; background-color: green;" class="butt-innac">Click Me</button>
+        <button style="left: 500px; top: 800px; background-color: pink;" class="butt-innac">Click Me</button>
+        <button style="left: 110px; top: 900px; background-color: purple;" class="butt-innac">Click Me</button>
+        <button style="left: 180px; top: 600px; background-color: grey;" class="butt-innac">Click Me</button>
 {% endblock body %}

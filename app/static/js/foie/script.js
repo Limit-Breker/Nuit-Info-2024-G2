@@ -123,3 +123,21 @@ setTimeout(() => {
         }
     }
 }, 1000);
+
+
+    nb_cache = 0;
+    async function click_cache(el)
+    {
+        el.hidden = true;
+        nb_cache++;
+        if (nb_cache == 6) {
+            const response = await fetch('/api/profile/organs/', {
+                method: 'PATCH',
+                body: JSON.stringify({"foie": true}),
+                headers: {
+                    'X-CSRFToken': csrftoken,
+                    'Content-Type': 'application/json'
+                }
+            });
+        }
+    }
