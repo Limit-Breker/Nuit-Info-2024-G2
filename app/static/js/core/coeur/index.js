@@ -7,9 +7,9 @@ let canvasDimensions = {x:700,y:document.documentElement.clientHeight - 4}
 let canvasId = 'gameCanvas';
 let canvas = document.getElementById(canvasId);
 let game = new CoeurGameEngine(canvas, canvasDimensions.x, canvasDimensions.y);
-let poubelleGauche = new StaticItem({x:0,y:canvasDimensions.y - 200},{x:0,y:0},{x:200,y:200},null,false)
+let poubelleGauche = new StaticItem({x:0,y:canvasDimensions.y - 200},{x:0,y:0},{x:200,y:200},null,false,false)
 let center = new StaticItem({x:0,y:canvasDimensions.y - 1},{x:0,y:0},{x:canvasDimensions.x,y:1},null,true)
-let poubelleDroite = new StaticItem({x:canvasDimensions.x - 200, y:canvasDimensions.y+1 - 200},{x:0,y:0},{x:200,y:200},null,false)
+let poubelleDroite = new StaticItem({x:canvasDimensions.x - 200, y:canvasDimensions.y+1 - 200},{x:0,y:0},{x:200,y:200},null,false,true)
 
 
 if (!canvas) {
@@ -52,7 +52,6 @@ game.canvas.addEventListener('click', function(event) {
                 game.dynamicGameObjects.forEach(
                     objDynamic => {
                         if(obj.collideWithADynamicItem(objDynamic)) {
-                            
                             game.removeDynamicObject(objDynamic)
                         }
                     }

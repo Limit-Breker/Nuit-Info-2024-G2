@@ -3,11 +3,13 @@ import GameEntity from '../common_jeu/game_entity.js';
 export default class StaticItem extends GameEntity {
 
     collisionnable;
+    objective
 
-    constructor(position, speed, dimensions, sprite = null,collosionnable) {
+    constructor(position, speed, dimensions, sprite = null,collosionnable,objective=null) {
 
         super(position,speed,dimensions,sprite)
         this.collisionnable=collosionnable
+        this.objective=objective
 
     }
 
