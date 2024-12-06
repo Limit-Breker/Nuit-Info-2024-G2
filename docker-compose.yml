@@ -48,7 +48,7 @@ services:
       - media_volume:/usr/src/app/media
       - ./nginx:/etc/nginx/conf.d
     ports:
-      - "80"
+      - "3336:80"
     depends_on:
       - web
     networks:
