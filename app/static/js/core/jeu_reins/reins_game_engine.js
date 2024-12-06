@@ -10,17 +10,22 @@ sprites[0].src = "/static/images/jeu_reins/reins-poison.svg"
 sprites[1].src = "/static/images/jeu_reins/tortue.svg"
 sprites[2].src = "/static/images/jeu_reins/reins-bouteille.svg"
 
+let vie = new Image()
+vie.src = "/static/images/jeu_rein/vie.svg"
+
 export default class ReinsGameEngine extends GameEngine {
 
     delta;
     constructor(canvas, width, height) {
 
         super(canvas, width, height)
-        this.delta = 0.1
+        this.delta = 0.6
         this.background = new Image()
-        this.background.src = "/static/images/jeu_reins/game-reins.png"
-        this.delta = 1
-
+        this.background.src = "/static/images/jeu_reins/game-reins.webp"
+        this.vies = 3
+        this.score = 0
+        this.vie = new Image()
+        this.vie.src = "/static/images/jeu_reins/vie.svg"
     }
 
     update(deltaTime) {
@@ -30,7 +35,6 @@ export default class ReinsGameEngine extends GameEngine {
                 this.dynamicGameObjects.forEach(
                     objDynamic => {
                         if(obj.collideWithADynamicItem(objDynamic)) {
-                            console.log('CA COLLIDE TA MERE')
                             this.removeDynamicObject(objDynamic)
                         }
                     }
@@ -63,7 +67,6 @@ export default class ReinsGameEngine extends GameEngine {
 
             this.update(deltaTime);
             this.render();
-            console.log("ta soeur")
 
             
 
@@ -84,5 +87,11 @@ export default class ReinsGameEngine extends GameEngine {
 
     renderBackground() {
         this.context.drawImage(this.background, 0, 0, this.canvas.width, this.canvas.height)
+        for (let i = 0; i < this.vies; i++) {
+          this.context.drawImage(this.vie, 1 + i* 60, 0, 60, 60)
+        }
+        this.context.fillStyle = "black"
+        this.context.font = "48px sans-serif";
+        this.context.fillText(this.score, 10, 100);
     }
 }
