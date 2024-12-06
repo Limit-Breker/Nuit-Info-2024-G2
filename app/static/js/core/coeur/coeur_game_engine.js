@@ -42,7 +42,11 @@ export default class CoeurGameEngine extends GameEngine {
                 this.dynamicGameObjects.forEach(
                     objDynamic => {
                         if(obj.collideWithADynamicItem(objDynamic) && obj.collisionnable) {
+                            if(obj.objective==objDynamic.objectif) {
+                                this.vies--
+                            }
                             this.removeDynamicObject(objDynamic)
+                            
                         }
                     }
                 )
