@@ -1,19 +1,16 @@
 export default class GameEngine {
 
-    height;
-    width;
+    canvas;
+    canvasDimensions;
 
-    constructor(canvasId, width, height) {
+    constructor(canvas, canvasDimensions) {
 
         this.height = height
         this.width = width
         
-        this.canvas = document.getElementById(canvasId);
-        if (!this.canvas) {
-            throw new Error(`Canvas with ID "${canvasId}" not found.`);
-        }
-        this.canvas.width = width;
-        this.canvas.height = height;
+        this.canvas = canvas;
+        this.canvas.width = canvasDimensions.x;
+        this.canvas.height = canvasDimensions.y;
         this.context = this.canvas.getContext('2d');
         
         // État du jeu
@@ -82,10 +79,13 @@ export default class GameEngine {
 
     render() {
         
-        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-
+        this.renderBackground();        
         
         this.staticGameObjects.forEach(obj => obj.render(this.context));
         this.dynamicGameObjects.forEach(obj => obj.render(this.context));
+    }
+
+    renderBackground() {
+        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
 }
