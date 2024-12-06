@@ -45,17 +45,25 @@ game.canvas.addEventListener('click', function(event) {
     
     console.log(event);
     
-    if (poubelleGauche.intersects({x:x,y:y})) {
+    if (x < canvasDimensions.x /2) {
         console.log("poubelleGauche")
         if (game.dynamicGameObjects[0].canStrafe) {
-            game.dynamicGameObjects[0].strafeLeft(canvasDimensions)
+          console.log(game.dynamicGameObjects[0].position.x)
+          if (game.dynamicGameObjects[0].position.x > 400)
+            game.dynamicGameObjects[0].strafe( canvasDimensions.x/2, canvasDimensions)
+          else 
+            game.dynamicGameObjects[0].strafe( 100, canvasDimensions)
+
         }
         console.log(game.dynamicGameObjects[0].speed.x)
     }
-    if (poubelleDroite.intersects({x:x,y:y})) {
+    if (x > canvasDimensions.x /2) {
         console.log("poubelleDroite")
         if (game.dynamicGameObjects[0].canStrafe) {
-            game.dynamicGameObjects[0].strafeRight(canvasDimensions)
+          if (game.dynamicGameObjects[0].position.x < 200)
+            game.dynamicGameObjects[0].strafe( canvasDimensions.x/2, canvasDimensions)
+          else 
+            game.dynamicGameObjects[0].strafe( canvasDimensions.x - 100, canvasDimensions)
         }
         console.log(game.dynamicGameObjects[0].speed.x)
     }
