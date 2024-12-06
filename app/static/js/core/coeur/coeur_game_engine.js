@@ -17,8 +17,7 @@ export default class CoeurGameEngine extends GameEngine {
             obj => {
                 this.dynamicGameObjects.forEach(
                     objDynamic => {
-                        if(obj.collideWithADynamicItem(objDynamic)) {
-                            console.log('CA COLLIDE TA MERE')
+                        if(obj.collideWithADynamicItem(objDynamic) && obj.collisionnable) {
                             this.removeDynamicObject(objDynamic)
                         }
                     }
@@ -44,9 +43,9 @@ export default class CoeurGameEngine extends GameEngine {
         const deltaTime = (currentTime - this.lastFrameTime) / 1000; // en secondes
         this.lastFrameTime = currentTime;
 
-        if(this.dynamicGameObjects.length==0) {
+        if(this.dynamicGameObjects.length<2 ) {
             this.genererObjet()
-            this.delta+=1
+            this.delta+=0
         }
 
             this.update(deltaTime);
@@ -59,8 +58,11 @@ export default class CoeurGameEngine extends GameEngine {
     
 
     genererObjet() {
-        let destinations = [-1,0,1]
-        let o = new FallingItem({x:(this.canvasDimensions.x - 50) /2,y:0},{x:0,y:100},{x:50,y:50},destinations[Math.floor(Math.random() * destinations.length)],this.delta)
+        let destinations = [true,false]
+        let choice = destinations[Math.floor(Math.random() * destinations.length)]
+        let objectif = destinations[Math.floor(Math.random() * destinations.length)]
+        
+        let o = new FallingItem({x:choice==1?this.canvas.width-100:100,y:0},{x:0,y:100},{x:50,y:50},objectif)
         o.canStrafe = true
         this.addDynamicObject(o)
     }

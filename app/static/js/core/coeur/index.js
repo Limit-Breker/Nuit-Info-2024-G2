@@ -7,9 +7,9 @@ let canvasDimensions = {x:700,y:document.documentElement.clientHeight - 4}
 let canvasId = 'gameCanvas';
 let canvas = document.getElementById(canvasId);
 let game = new CoeurGameEngine(canvas, canvasDimensions.x, canvasDimensions.y);
-let poubelleGauche = new StaticItem({x:0,y:canvasDimensions.y - 200},{x:0,y:0},{x:200,y:200})
-let center = new StaticItem({x:200,y:canvasDimensions.y - 1},{x:0,y:0},{x:300,y:1})
-let poubelleDroite = new StaticItem({x:canvasDimensions.x - 200, y:canvasDimensions.y - 200},{x:0,y:0},{x:200,y:200})
+let poubelleGauche = new StaticItem({x:0,y:canvasDimensions.y - 200},{x:0,y:0},{x:200,y:200},null,false)
+let center = new StaticItem({x:0,y:canvasDimensions.y - 1},{x:0,y:0},{x:canvasDimensions.x,y:1},null,true)
+let poubelleDroite = new StaticItem({x:canvasDimensions.x - 200, y:canvasDimensions.y+1 - 200},{x:0,y:0},{x:200,y:200},null,false)
 
 
 if (!canvas) {
@@ -47,18 +47,40 @@ game.canvas.addEventListener('click', function(event) {
     
     if (poubelleGauche.intersects({x:x,y:y})) {
         console.log("poubelleGauche")
-        if (game.dynamicGameObjects[0].canStrafe) {
-            game.dynamicGameObjects[0].strafeLeft(canvasDimensions)
-        }
+        game.staticGameObjects.forEach(
+            obj => {
+                game.dynamicGameObjects.forEach(
+                    objDynamic => {
+                        if(obj.collideWithADynamicItem(objDynamic)) {
+                            
+                            game.removeDynamicObject(objDynamic)
+                        }
+                    }
+                )
+                
+            }
+        );
+    
         console.log(game.dynamicGameObjects[0].speed.x)
     }
     if (poubelleDroite.intersects({x:x,y:y})) {
         console.log("poubelleDroite")
-        if (game.dynamicGameObjects[0].canStrafe) {
-            game.dynamicGameObjects[0].strafeRight(canvasDimensions)
-        }
+        game.staticGameObjects.forEach(
+            obj => {
+                game.dynamicGameObjects.forEach(
+                    objDynamic => {
+                        if(obj.collideWithADynamicItem(objDynamic)) {
+                            
+                            game.removeDynamicObject(objDynamic)
+                        }
+                    }
+                )
+                
+            }
+        );
         console.log(game.dynamicGameObjects[0].speed.x)
     }
+    
 }, 
 false
 );
