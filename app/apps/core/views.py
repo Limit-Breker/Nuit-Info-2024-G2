@@ -7,11 +7,10 @@ def home(request):
     return render(request, 'home.html', context={'infos': infos})
 
 def jeu_coeur(request):
-    a = 2
-    return render(request, 'jeu-coeur.html',context = {'a':a})
+    return render(request, 'jeu-coeur.html')
+    
 def jeu_reins(request):
-    a = 2
-    return render(request, 'jeu-reins.html',context = {'a':a})
+    return render(request, 'jeu-reins.html')
 
 def foie(request):
     return render(request, 'foie.html')
