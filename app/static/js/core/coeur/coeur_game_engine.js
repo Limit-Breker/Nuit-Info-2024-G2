@@ -42,8 +42,11 @@ export default class CoeurGameEngine extends GameEngine {
                 this.dynamicGameObjects.forEach(
                     objDynamic => {
                         if(obj.collideWithADynamicItem(objDynamic) && obj.collisionnable) {
-                            if(obj.objective==objDynamic.objectif) {
+                            if(objDynamic.position.x > 400 == objDynamic.objectif) {
                                 this.vies--
+                                if (this.vies == 0) {
+                                  this.running = false;
+                                }
                             }
                             this.removeDynamicObject(objDynamic)
                             
@@ -65,7 +68,20 @@ export default class CoeurGameEngine extends GameEngine {
 
     loop() {
         
-        if (!this.running) return;
+      if (!this.running) {
+        this.context.fillStyle = `rgba(0, 0, 0, 0.25)`
+        this.context.fillRect(0, 0, this.canvas.width, this.canvas.height)
+        this.context.fillStyle = "white"
+        this.context.font = "76px sans-serif";
+        this.context.fillText("Perdu", this.canvas.width / 2 -100, this.canvas.height / 2 -38);
+        this.context.fillText("Votre score : "+this.score, 100, this.canvas.height / 2 +38);
+        this.context.fillStyle = "blue"
+        this.context.fillRect(this.canvas.width /4, this.canvas.height/2 + 100, this.canvas.width / 2, 100)
+        this.context.fillStyle = "black"
+        this.context.font = "45px sans-serif";
+        this.context.fillText("Rejouer", this.canvas.width /4 +90, this.canvas.height/2 + 100 +60);
+        return;
+      }
 
         const currentTime = performance.now();
         const deltaTime = (currentTime - this.lastFrameTime) / 1000; // en secondes
