@@ -69,7 +69,6 @@ game.canvas.addEventListener('click', function(event) {
         game.dynamicGameObjects.forEach(
             objDynamic => {
                 if(poubelleDroite.collideWithADynamicItem(objDynamic)) {
-                    
                     game.removeDynamicObject(objDynamic)
                     if (poubelleDroite.objective == objDynamic.objective) {
                       game.score++
