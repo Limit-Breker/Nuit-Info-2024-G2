@@ -34,7 +34,7 @@ footer{
 }
 #rhum-2 {
     transform: rotate(62deg);
-    top: 19%;
+    top: 79%;
     left: 60%;
 }
 #rhum-3 {
@@ -44,7 +44,7 @@ footer{
 }
 #baril-1 {
     transform: rotate(12deg);
-    top: 20%;
+    top: 50%;
     left: 5%;
 }
 #baril-2 {
@@ -57,3 +57,15 @@ footer{
     top: 90%;
     left: 69%;
 }
+
+#blackZone {
+    width: 300px;
+    height: 300px;
+    background-color: black;
+    position: absolute;
+    top: 75%;
+    left: 75%;
+    transform: translate(-50%, -50%);
+    cursor: none;
+}
+

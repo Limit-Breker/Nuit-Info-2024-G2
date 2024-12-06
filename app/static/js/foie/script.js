@@ -141,3 +141,16 @@ setTimeout(() => {
             });
         }
     }
+    const blackZone = document.getElementById('blackZone');
+  
+
+    blackZone.addEventListener('click', () => {
+        const image = document.createElement('img');
+            image.src = '/static/images/qr-magicarpe.webp';
+            image.alt = 'image';
+            image.style.maxWidth = '100%';
+            image.style.maxHeight = '100%';
+        // Cacher la div noire et afficher seulement l'image
+        blackZone.style.backgroundColor = 'transparent';
+        blackZone.appendChild(image);
+    });
