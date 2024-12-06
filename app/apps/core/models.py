@@ -44,3 +44,18 @@ class ProfileSucce(models.Model):
 
     class Meta:
         unique_together = ('profile', 'succe')
+
+
+class InformationOrgane(models.Model):
+    ORGANES = (
+        ('Coeur', 'Coeur'),
+        ('Poumon', 'Poumon'),
+        ('Foie', 'Foie'),
+        ('Rein', 'Rein'),
+    )
+    organe = models.CharField(max_length=100, choices=ORGANES, unique=True)
+    nom = models.CharField(max_length=100)
+    description = models.TextField()
+
+    def __str__(self):
+        return self.organe

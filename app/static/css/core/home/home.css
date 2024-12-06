@@ -1,0 +1,76 @@
+body {
+    background-image: url(/static/images/background.webp);
+    background-repeat: no-repeat;
+     background-size: cover;
+    backdrop-filter: blur(10px) saturate(0.3);
+}
+#background {
+    width: 100vw;
+    height: 100vh;
+}
+#humain{
+    height: 65vh;
+    filter: drop-shadow(0 0 0.75rem rgba(255, 255, 255, 0.568)) brightness(1.2);
+}
+.organes{
+    position: absolute;
+    height: auto;
+    filter: drop-shadow(0 0 0.75rem rgba(233, 233, 233, 0.812)) brightness(1.2);
+    transition: filter 0.3s, transform 0.3s;
+}
+.organes:hover, .organes:active {
+    filter: drop-shadow(0 0 0.75rem rgba(248, 200, 5, 0.812)) brightness(1.2);
+}
+.organes:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+#coeur {
+    width: 12%;
+    top: 29%;
+    left: 49%;
+}
+#reins {
+    width: 13%;
+    top: 50%;
+    left: 55%;
+}
+#foie {
+    width: 22%;
+    top: 49%;
+    left: 29%;
+}
+#poumon {
+    width: 19%;
+    top: 22%;
+    left: 30%;
+}
+
+
+@keyframes slideInFromLeft {
+    0% {
+    transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }   
+}
+
+@keyframes slideInFromTopFade {
+    0% {
+    transform: translateY(-20%);
+    opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    } 
+}
+  
+#titre-page{
+    animation: 0.5s ease-out 0s 1 slideInFromLeft;
+}
+
+#human-box{
+    animation: 0.5s ease-out 0s 1 slideInFromTopFade;
+}

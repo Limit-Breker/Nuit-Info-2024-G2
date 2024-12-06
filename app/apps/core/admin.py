@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Profile, ProfilePokecoin, ProfileSucce
+from .models import Profile, ProfilePokecoin, ProfileSucce, InformationOrgane
 
 
 class ProfilePokecoinInline(admin.TabularInline):
@@ -14,7 +14,6 @@ class ProfileSucceInline(admin.TabularInline):
     readonly_fields = ['succe']
 
 
-# Custom ProfileAdmin
 @admin.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):
     list_display = ('utilisateur', 'get_pokecoins', 'get_succes')
@@ -31,3 +30,6 @@ class ProfileAdmin(admin.ModelAdmin):
         """Display a comma-separated list of successes."""
         return ", ".join([succes.nom for succes in obj.succes.all()])
     get_succes.short_description = "Succes"
+
+
+admin.site.register(InformationOrgane)
