@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{% static "css/info/style.css" %}?{% now "u" %}">
+{% endblock stylesheets %}
+
+
+{% block body %}
+    <div class="audio-player">
+        <h1>Les courants marins</h1>
+        <div class="flex">
+            <audio id="audio1" controls>
+                <source src="{% static "podcast/podcast courants marins.mp3" %}" type="audio/mp3">
+                Your browser does not support the audio element.
+            </audio>
+            <button onclick="document.getElementById('audio1').play()">Jouer</button>
+            <button onclick="document.getElementById('audio1').pause()">Pause</button>
+            <button onclick="document.getElementById('audio1').volume+=0.1">Augmenter volume</button>
+            <button onclick="document.getElementById('audio1').volume-=0.1">Déscendre volume</button>
+        </div>
+    </div>
+    <div class="audio-player">
+        <h1>Pompes biochimiques</h1>
+        <div class="flex">
+            <audio id="audio2" controls>
+                <source src="{% static "podcast/podcast pompe biochimique.mp3" %}" type="audio/mp3">
+                Your browser does not support the audio element.
+            </audio>
+            <button onclick="document.getElementById('audio2').play()">Jouer</button>
+            <button onclick="document.getElementById('audio2').pause()">Pause</button>
+            <button onclick="document.getElementById('audio2').volume+=0.1">Augmenter volume</button>
+            <button onclick="document.getElementById('audio2').volume-=0.1">Déscendre volume</button>
+        </div>
+    </div>
+{% endblock body %}

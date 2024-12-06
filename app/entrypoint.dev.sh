@@ -18,11 +18,14 @@ python3 manage.py collectstatic --noinput --settings=nuitinfo.settings.developme
 
 cat <<EOF | python manage.py shell
 from django.contrib.auth import get_user_model
+from django.core.management import call_command
 
 User = get_user_model()  # get the currently active user model,
 
 User.objects.filter(username='admin').exists() or \
     User.objects.create_superuser('admin', 'admin@example.com', 'iutinfo')
+
+call_command('populate')
 EOF
 
 python3 manage.py runserver 0.0.0.0:8000 --settings=nuitinfo.settings.development
