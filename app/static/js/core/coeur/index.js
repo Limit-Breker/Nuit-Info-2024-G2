@@ -25,6 +25,7 @@ rein.src = "/static/images/jeu_coeur/etoile-jeu.svg"
 poubelleGauche.render = function(context) {
   context.drawImage(rein, this.position.x, this.position.y, this.dimensions.x, this.dimensions.y)
 }
+poubelleGauche.objectif = 0
 
 let mangrove = new Image()
 mangrove.src = "/static/images/jeu_coeur/coeur-jeu.svg"
@@ -32,6 +33,7 @@ mangrove.src = "/static/images/jeu_coeur/coeur-jeu.svg"
 poubelleDroite.render = function(context) {
   context.drawImage(mangrove, this.position.x, this.position.y, this.dimensions.x, this.dimensions.y)
 }
+poubelleDroite.objectif = 1
 
 
 game.addStaticObject(poubelleGauche)
@@ -50,12 +52,12 @@ game.canvas.addEventListener('click', function(event) {
         game.dynamicGameObjects.forEach(
             objDynamic => {
                 if(poubelleGauche.collideWithADynamicItem(objDynamic)) {
-                    
+                    console.log(objDynamic.objectif, poubelleGauche.objectif)
                     game.removeDynamicObject(objDynamic)
-                    if (poubelleGauche.objective == objDynamic.objective) {
+                    if (poubelleGauche.objectif == objDynamic.objectif) {
                       game.score++
                     }
-                    else {
+                    else if (game.score > 0) {
                       game.score--
                     }
                 }
@@ -70,10 +72,10 @@ game.canvas.addEventListener('click', function(event) {
             objDynamic => {
                 if(poubelleDroite.collideWithADynamicItem(objDynamic)) {
                     game.removeDynamicObject(objDynamic)
-                    if (poubelleDroite.objective == objDynamic.objective) {
+                    if (poubelleDroite.objectif == objDynamic.objectif) {
                       game.score++
                     }
-                    else {
+                    else if (game.score > 0) {
                       game.score--
                     }
                 }
