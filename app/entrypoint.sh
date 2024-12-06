@@ -17,6 +17,11 @@ fi
 
 python3 manage.py migrate --settings=nuitinfo.settings.production
 python3 manage.py collectstatic --settings=nuitinfo.settings.production --no-input
+
+cat <<EOF | python manage.py shell
+from django.core.management import call_command
+call_command('populate')
+EOF
 gunicorn nuitinfo.wsgi:application --bind 0.0.0.0:8000
 
 exec "$@"

@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     "core.apps.CoreConfig",
     "core_api.apps.CoreApiConfig",
     "authentication.apps.AuthenticationConfig",
+    "infos.apps.InfosConfig",
     'django_extensions',
     'fontawesome_5',
 ]

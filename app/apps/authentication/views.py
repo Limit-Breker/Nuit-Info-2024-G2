@@ -8,10 +8,15 @@ from django.contrib import messages
 def auth_register(request):
     form = RegisterForm(request.POST)
     if form.is_valid():
-        User.objects.create_user(
+        # check if the username already exists
+        if User.objects.filter(username=form.cleaned_data["username"]).exists():
+            messages.error(request, "Ce nom d'utilisateur existe déjà")
+            return render(request, "register.html", context={"form": form})
+        user = User.objects.create_user(
             username=form.cleaned_data["username"],
             password=form.cleaned_data["password"],
         )
+        login(request, user)
         messages.success(request, "Compte créé avec succès")
         return redirect("/")
     return render(request, "register.html", context={"form": form})

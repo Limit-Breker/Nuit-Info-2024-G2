@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block body %}
+    <div class="flex justify-center h-mscreen overflow-scroll">
+        <div class="my-auto p-10 backdrop-blur-3 rounded-3xl bg-black bg-opacity-50">
+            {% for info in infos %}
+            <div class="text-white mb-10">
+                <p class="text-center text-6xl my-4">{{ info.name }}</p>
+                <p class="test-justify text-5xl">{{ info.description }}</p>    
+            </div>
+            {% endfor %}
+
+            <div class="mt-10 text-center">
+                <a href="{% url 'podcast' %}" class="text-blue text-6xl">Voir ici les podcasts</a>
+            </div>
+        </div>
+    </div>
+{% endblock body %}
