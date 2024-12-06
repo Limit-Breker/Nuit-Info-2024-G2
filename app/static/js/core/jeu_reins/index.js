@@ -7,9 +7,9 @@ let canvasDimensions = {x:700,y:document.documentElement.clientHeight - 4}
 let canvasId = 'gameCanvas';
 let canvas = document.getElementById(canvasId);
 let game = new ReinsGameEngine(canvas, canvasDimensions.x, canvasDimensions.y);
-let poubelleGauche = new StaticItem({x:0,y:canvasDimensions.y - 200},{x:0,y:0},{x:200,y:200})
-let center = new StaticItem({x:200,y:canvasDimensions.y - 1},{x:0,y:0},{x:300,y:1})
-let poubelleDroite = new StaticItem({x:canvasDimensions.x - 200, y:canvasDimensions.y - 200},{x:0,y:0},{x:200,y:200})
+let poubelleGauche = new StaticItem({x:0,y:canvasDimensions.y - 200},{x:0,y:0},{x:200,y:200},null,-1)
+let center = new StaticItem({x:200,y:canvasDimensions.y - 1},{x:0,y:0},{x:300,y:1},null,0)
+let poubelleDroite = new StaticItem({x:canvasDimensions.x - 200, y:canvasDimensions.y - 200},{x:0,y:0},{x:200,y:200},null,1)
 
 
 if (!canvas) {
