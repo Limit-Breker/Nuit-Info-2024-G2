@@ -54,7 +54,7 @@ function big_capcha()
 
     for (var y = 0; y < 3; y++) {
         for (var i = 0; i < 3; i++) {
-            puzzle_html.innerHTML += "<div onclick='puzzle_click(this)' x='"+i+"' y='"+y+"'><p>"+puzzle[y][i]+"</p></div>";
+            puzzle_html.innerHTML += "<div onclick='puzzle_click(this)' x='"+i+"' y='"+y+"'><img src='/static/images/baleine-capcha-"+puzzle[y][i]+".jpg'></img></div>";
         }
     }
 }
@@ -83,9 +83,12 @@ function puzzle_click(e)
         puzzle[y][x] = 0;
     }
     big_capcha();
+    var puz_case = document.querySelectorAll("#puzzle > *");
     if (JSON.stringify(puzzle) == JSON.stringify([[1, 2, 3], [4, 5, 6], [7, 8, 0]])) {
-        document.getElementById("puzzle").style = "color: green";
+        for (var i = 0; i < puz_case.length; i++)
+            puz_case[i].style.border = "solid green"
     } else {
-        document.getElementById("puzzle").style = "color: white";
+        for (var i = 0; i < s.length; i++)
+            puz_case[i].style.border = "solid white"
     }
 }
