@@ -23,6 +23,7 @@ export default class GameEntity {
     }
 
     update(deltaTime) {
+        // console.log(this.position, this.speed)
         this.position.x += this.speed.x * deltaTime;
         this.position.y += this.speed.y * deltaTime;
     }
@@ -32,6 +33,11 @@ export default class GameEntity {
     }
 
     intersects(position) {
-        return this.position.x < position.x && this.position.x + this.dimensions.x > position.x && this.position.y < position.y && this.position.y + this.dimensions.y > position.y
+        return (
+            this.position.x < position.x && 
+            this.position.x + this.dimensions.x > position.x && 
+            this.position.y < position.y && 
+            this.position.y + this.dimensions.y > position.y
+        )
     }
 }
