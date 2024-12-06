@@ -34,7 +34,6 @@ poubelleDroite.render = function(context) {
 game.addStaticObject(poubelleGauche)
 game.addStaticObject(poubelleDroite)
 game.start();
-genererObjet(game);
 
 game.canvas.addEventListener('click', function(event) { 
     var x = event.offsetX,
@@ -56,4 +55,6 @@ game.canvas.addEventListener('click', function(event) {
         }
         console.log(game.dynamicGameObjects[0].speed.x)
     }
-}, false);
+}, 
+false
+);

@@ -12,6 +12,7 @@ export default class FallingItem extends GameEntity {
 
     update(deltaTime) {
         // console.log(this.position, this.speed)
+        console.log("update")
         this.speed.y+=3;
         this.position.x += this.speed.x * deltaTime;
         this.position.y += this.speed.y * deltaTime;
@@ -59,8 +60,6 @@ export default class FallingItem extends GameEntity {
         testEndStrafe()
     }
 
-    collideWithStaticObject() {
-        
-    }
+    
 
 }

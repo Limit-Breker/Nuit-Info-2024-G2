@@ -9,7 +9,6 @@ export default class StaticItem extends GameEntity {
             object.position.y < this.position.y + this.dimensions.y &&
             object.position.y + object.dimensions.y  > this.position.y  
         )
-        console.log(sortie)
         return sortie
     }
 
