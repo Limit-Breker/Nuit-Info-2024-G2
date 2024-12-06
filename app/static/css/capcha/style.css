@@ -1,0 +1,29 @@
+#puzzle {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    width: 300px;
+    height: 300px;
+}
+
+#puzzle > * {
+    display: flex;
+    padding: 1rem;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: solid 1px rgb(255, 255, 255);
+    border-radius: 10px;
+}
+
+#id_username, #id_password  {
+    border-radius: 10px;
+}
+
+.h-mscreen{
+    height: 80vh;
+}
+
+#btn-action {
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+}
