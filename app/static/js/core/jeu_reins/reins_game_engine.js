@@ -16,7 +16,7 @@ export default class ReinsGameEngine extends GameEngine {
     constructor(canvas, width, height) {
 
         super(canvas, width, height)
-        this.delta = 0.1
+        this.delta = 1
         this.background = new Image()
         this.background.src = "/static/images/jeu_reins/game-reins.png"
     }
@@ -56,18 +56,17 @@ export default class ReinsGameEngine extends GameEngine {
 
         if(this.dynamicGameObjects.length==0) {
             this.genererObjet()
-            this.delta+=35
+            this.delta+=1
         }
 
-        this.update(deltaTime);
-        this.render();
-        console.log("ta soeur")
+            this.update(deltaTime);
+            this.render();
+            console.log("ta soeur")
 
-        
+            
 
-        requestAnimationFrame(() => this.loop());
+            requestAnimationFrame(() => this.loop());
 
-        
     }
 
     
