@@ -47,37 +47,39 @@ game.canvas.addEventListener('click', function(event) {
     
     if (poubelleGauche.intersects({x:x,y:y})) {
         console.log("poubelleGauche")
-        game.staticGameObjects.forEach(
-            obj => {
-                game.dynamicGameObjects.forEach(
-                    objDynamic => {
-                        if(obj.collideWithADynamicItem(objDynamic)) {
-                            
-                            game.removeDynamicObject(objDynamic)
-                        }
+        game.dynamicGameObjects.forEach(
+            objDynamic => {
+                if(poubelleGauche.collideWithADynamicItem(objDynamic)) {
+                    
+                    game.removeDynamicObject(objDynamic)
+                    if (poubelleGauche.objective == objDynamic.objective) {
+                      game.score++
                     }
-                )
-                
+                    else {
+                      game.score--
+                    }
+                }
             }
-        );
+        )
     
         console.log(game.dynamicGameObjects[0].speed.x)
     }
     if (poubelleDroite.intersects({x:x,y:y})) {
         console.log("poubelleDroite")
-        game.staticGameObjects.forEach(
-            obj => {
-                game.dynamicGameObjects.forEach(
-                    objDynamic => {
-                        if(obj.collideWithADynamicItem(objDynamic)) {
-                            
-                            game.removeDynamicObject(objDynamic)
-                        }
+        game.dynamicGameObjects.forEach(
+            objDynamic => {
+                if(poubelleDroite.collideWithADynamicItem(objDynamic)) {
+                    
+                    game.removeDynamicObject(objDynamic)
+                    if (poubelleDroite.objective == objDynamic.objective) {
+                      game.score++
                     }
-                )
-                
+                    else {
+                      game.score--
+                    }
+                }
             }
-        );
+        )
         console.log(game.dynamicGameObjects[0].speed.x)
     }
     
