@@ -86,6 +86,6 @@ function puzzle_click(e)
     if (JSON.stringify(puzzle) == JSON.stringify([[1, 2, 3], [4, 5, 6], [7, 8, 0]])) {
         document.getElementById("puzzle").style = "color: green";
     } else {
-        document.getElementById("puzzle").style = "color: black";
+        document.getElementById("puzzle").style = "color: white";
     }
 }

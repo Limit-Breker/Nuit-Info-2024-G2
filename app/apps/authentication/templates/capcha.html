@@ -1,7 +1,13 @@
-<button id="capcha" onclick="big_capcha()">CAPCHA</button>
+<div class="text-2xl text-center my-5 text-white">
+<button type="button" id="capcha" class="border-2 w-full text-white rounded-xl" onclick="big_capcha()">GAMCHA</button>
 <div hidden id="capcha-popup">
-    <button onclick="this.parentNode.hidden=true;">close capcha</button>
-    <p>le capcha la</p>
-    <div id="puzzle">
+    <button type="button" class="border-2 my-3 text-red w-full text-center rounded-xl" onclick="this.parentNode.hidden=true;">Fermer le gamcha</button>
+    <p class="my-3">
+        Alignez les pièces du puzzle de 1 à 8 avec 0<br>en bas à droite pour valider le formulaire.
+    </p>
+    <div class="flex justify-center">
+        <div id="puzzle" class="text-white">
+        </div>
     </div>
+</div>
 </div>
