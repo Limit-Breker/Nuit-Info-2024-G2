@@ -1,0 +1,59 @@
+body {
+    background-image: url(/static/images/background-foie.webp);
+    background-size: cover;
+}
+form{
+    background-color: #eee; border-radius: 5px; padding: 10px; margin: 10px;
+}
+form input#slider{
+    transition: width 0.5s ease-in-out;
+}
+form input#angleSlider{
+    display: none;
+}
+footer{
+    position: fixed; bottom: 0; width: 100%; text-align: center; font-size: 12px; color: #999;
+}
+.butt-innac {
+    position: absolute;
+    background-color: grey;
+    border: solid black 3px;
+    border-radius: 15px;
+    padding: 30px;
+}
+.cache {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    z-index: -1;
+}
+#rhum-1 {
+    transform: rotate(12deg);
+    top: 52%;
+    left: 12%;
+}
+#rhum-2 {
+    transform: rotate(62deg);
+    top: 19%;
+    left: 60%;
+}
+#rhum-3 {
+    transform: rotate(169deg);
+    top: 50%;
+    left: 50%;
+}
+#baril-1 {
+    transform: rotate(12deg);
+    top: 20%;
+    left: 5%;
+}
+#baril-2 {
+    transform: rotate(62deg);
+    top: 80%;
+    left: 7%;
+}
+#baril-3 {
+    transform: rotate(169deg);
+    top: 90%;
+    left: 69%;
+}

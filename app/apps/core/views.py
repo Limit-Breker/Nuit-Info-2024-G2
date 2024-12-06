@@ -9,3 +9,6 @@ def home(request):
 def jeu_reins(request):
     a = 2
     return render(request, 'jeu-reins.html',context = {'a':a})
+
+def foie(request):
+    return render(request, 'foie.html')
